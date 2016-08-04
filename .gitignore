@@ -20,4 +20,5 @@ static/default/cache/
 static/classic/cache/
 templates/classic/index_download.html
 *.DS_Store
+__pycache__
 
