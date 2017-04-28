@@ -58,7 +58,7 @@ class ProductUnit(models.Model):
     def __unicode__(self):
         return self.name
 
-class Product(models.Model):
+class ProductBase(models.Model):
     """商品的基本信息"""
     name      = models.CharField(max_length= 200 , verbose_name  = _(u'商品名称'))
     category  = models.ForeignKey(ProductCategory,verbose_name   = _(u'商品分类'))
@@ -70,10 +70,13 @@ class Product(models.Model):
         verbose_name_plural = verbose_name = _(u'商品基本信息')
     def __unicode__(self):
         return self.name
+class ProductDetail(models.Model):
+    pass
 
 class StoreHouse(models.Model):
     """仓库信息，（需要添加仓库负责人）"""
     name  = models.CharField(max_length= 200 , verbose_name  = _(u'仓库名称'))
+#user 仓库负责人ID
     addr  = models.CharField(max_length                      = 200            , verbose_name  = _(u'仓库地址'))
     phone   = models.CharField(max_length  = 200            , verbose_name = _(u'联系电话'))
     date  = models.DateTimeField(default                     = datetime.now   , verbose_name  = _(u'创建时间'))
@@ -87,3 +90,6 @@ class StoreHouse(models.Model):
 #商品 入库 的时候要跟那个仓库关联，一种商品对应一个仓库
 #商品 和 供应商的关系是 多对多 也是在入库的时候决定
 #
+class  Product_Supplier(models.Model):
+    pass
+ 
